@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Interactive comments section</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+
+  <div class="container-pop-up">
+    <div class="popup-box">
+      <h3>Delete Comment</h3>
+      <p>Are you sure you want delete this comment? this will remove the comment and can't be undone</p>
+      <div class="box-button">
+        <button onclick="cancel()">NO, CANCEL</button>
+        <button onclick="deleted()" class="red">YES, DELETE</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pull dynamic content from the data.json file -->
+
+  <div class="container">
+    <div class="comment-container">
+
+
+      <div class="card-comment offset one">
+        <div class="wraper-card">
+          <div class="quantity">
+            <p onclick="increase('.one .score')" class="fade-blue">+</p>
+            <p class="score">12</p>
+            <p onclick="decrease('.one .score')" class="fade-blue">-</p>
+          </div>
+          <div class="comment">
+            <div class="profile">
+              <div>
+                <img src="images/avatars/image-amyrobson.png" alt="">
+                <h3>Amyrobson</h3>
+                <p>1 Month Ago</p>
+              </div>
+              <h4 onclick="showComment('one')"><img src="images/icon-reply.svg" alt=""><span>Reply</span></h4>
+            </div>
+            <p class="paragraph">Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well</p>
+          </div>
+        </div>
+        <div class="card show">
+          <img src="images/avatars/image-juliusomo.png" alt="">
+          <textarea placeholder="Add a comment..."></textarea>
+          <button onclick="hideComment('one')">Send</button>
+        </div>
+      </div>
+
+
+      <div class="card-comment offset two">
+        <div class="wraper-card">
+          <div class="quantity">
+            <p onclick="increase('.two .score')" class="fade-blue">+</p>
+            <p class="score">5</p>
+            <p onclick="decrease('.two .score')" class="fade-blue">-</p>
+          </div>
+          <div class="comment">
+            <div class="profile">
+              <div>
+                <img src="./images/avatars/image-maxblagun.png" alt="">
+                <h3>maxblagun</h3>
+                <p>2 weeks ago</p>
+              </div>
+              <h4 onclick="showComment('two')"><img src="images/icon-reply.svg" alt=""><span>Reply</span></h4>
+            </div>
+            <p class="paragraph">Woah, your project looks awesome! How long have you been coding for? I'm still new, but think I want to dive into React as well soon. Perhaps you can give me an insight on where I can learn React? Thanks!</p>
+          </div>
+        </div>
+        <div class="card show">
+          <img src="images/avatars/image-juliusomo.png" alt="">
+          <textarea placeholder="Add a comment..."></textarea>
+          <button onclick="hideComment('two')">Send</button>
+        </div>
+      </div>
+
+
+      <div class="pull-comment">
+
+        <div class="card-comment three">
+          <div class="wraper-card">
+            <div class="quantity">
+              <p onclick="increase('.three .score')" class="fade-blue">+</p>
+              <p class="score">4</p>
+              <p onclick="decrease('.three .score')" class="fade-blue">-</p>
+            </div>
+            <div class="comment">
+              <div class="profile">
+                <div>
+                  <img src="./images/avatars/image-ramsesmiron.png" alt="">
+                  <h3>ramsesmiron</h3>
+                  <p>1 week ago</p>
+                </div>
+                <h4 onclick="showComment('three')"><img src="images/icon-reply.svg" alt=""><span>Reply</span></h4>
+              </div>
+              <p class="paragraph"><span class="replying">@maxblagun</span> If you're still new, I'd recommend focusing on the fundamentals of HTML, CSS, and JS before considering React. It's very tempting to jump ahead but lay a solid foundation first.</p>
+            </div>
+          </div>
+          <div class="card show">
+            <img src="images/avatars/image-juliusomo.png" alt="">
+            <textarea placeholder="Add a comment..."></textarea>
+            <button onclick="hideComment('three')">Send</button>
+          </div>
+        </div>
+
+  
+        <div class="card-comment four">
+          <div class="wraper-card">
+            <div class="quantity">
+              <p onclick="increase('.four .score')" class="fade-blue">+</p>
+              <p class="score">2</p>
+              <p onclick="decrease('.four .score')" class="fade-blue">-</p>
+            </div>
+            <div class="comment">
+              <div class="profile">
+                <div>
+                  <img src="./images/avatars/image-juliusomo.png" alt="">
+                  <h3>juliusomo</h3>
+                  <p>2 days ago</p>
+                </div>
+                <div class="landing">
+                  <h4 onclick="deleteComment()"><img src="images/icon-delete.svg" alt=""></h4>
+                  <h4 onclick="showComment('four')"><img src="images/icon-edit.svg" alt=""><span>Edit</span></h4>
+                </div>
+              </div>
+              <p class="paragraph myComment"><span class="replying">@ramsesmiron</span> I couldn't agree more with this. Everything moves so fast and it always seems like everyone knows the newest library/framework. But the fundamentals are what stay constant.</p>
+            </div>
+          </div>
+          <div class="card show">
+            <img src="images/avatars/image-juliusomo.png" alt="">
+            <textarea id="editComment" placeholder="Add a comment..."></textarea>
+            <button onclick="hideComment('four')">Send</button>
+          </div>
+        </div>
+
+      </div>
+      
+
+      <div class="card-comment offset">
+        <div class="card">
+          <img src="images/avatars/image-juliusomo.png" alt="">
+          <textarea placeholder="Add a comment..."></textarea>
+          <button>Send</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  
+  <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+
+  <script src="main.js"></script>
+</body>
+</html>

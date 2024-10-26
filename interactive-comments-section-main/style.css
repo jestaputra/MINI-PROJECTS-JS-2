@@ -1,0 +1,265 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container{
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 50px 0;
+}
+.comment-container{
+    position: relative;
+}
+.card-comment{
+    margin: 20px 0;
+    width: 420px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+}
+.card-comment .wraper-card{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.card-comment .quantity{
+    height: 100%;
+    padding: 5px 0;
+    width: 120px;
+    border-radius: 10px;
+    background-color: rgb(221, 221, 255);
+    display: grid;
+    gap: 15px;
+}
+.card-comment .quantity p{
+    text-align: center;
+    font-size: 14px;
+    color: rgb(66, 66, 66);
+}
+.card-comment .quantity p.fade-blue{
+    color: rgb(142, 142, 255);
+    cursor: pointer;
+    transition: all .4s ease;
+}
+.card-comment .quantity p.fade-blue:hover{
+    color: blue;
+}
+
+.card-comment.offset{
+    width: 470px;
+}
+
+.card-comment .profile{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.card-comment .profile h4{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    color: rgb(83, 83, 255);
+    cursor: pointer;
+    transition: .2s ease;
+}
+.card-comment .profile h4:hover{
+    filter: opacity(.5);
+}
+.card-comment .profile div{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.card-comment .profile div img{
+    width: 30px;
+}
+.card-comment .profile div h3{
+    font-size: 17px;
+}
+.card-comment .profile div p{
+    font-size: 12px;
+    font-weight: 600;
+    color: gray;
+}
+.paragraph{
+    font-size: 13.5px;
+    line-height: 18px;
+    font-weight: 500;
+    color: rgb(48, 48, 48);
+}
+.replying{
+    font-weight: 600;
+    color: rgb(46, 46, 200);
+}
+
+.pull-comment{
+    margin-left: 20px;
+    padding-left: 30px;
+    border-left: 2px solid rgb(194, 194, 194);
+}
+
+.card-comment .card.show{
+    display: none;
+}
+
+.card{
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+    gap: 10px;
+}
+.card img{
+    width: 30px;
+}
+.card textarea{
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    border: 1px solid rgb(91, 91, 91);
+    border-radius: 5px;
+    outline: none;
+}
+.card button{
+    padding: 5px 10px;
+    border: none;
+    outline: none;
+    background: rgb(107, 107, 255);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+.card button:hover{
+    transform: scale(calc(0.9 + 0.02));
+    filter: opacity(.3);
+}
+
+.card-comment .landing h4{
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.card-comment .landing h4 img{
+    width: 15px;
+}
+
+.card-comment.active .wraper-card{
+    display: none;
+}
+.card-comment.active .card.show{
+    display: flex;
+}
+
+.container-pop-up{
+    width: 100%;
+    min-height: 130vh;
+    position: absolute;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.507);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+.popup-box{
+    width: 400px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+}
+.popup-box h3{
+    font-size: 23px;
+}
+.popup-box p{
+    margin: 20px 0 30px;
+    font-size: 17px;
+}
+.popup-box .box-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+}
+.popup-box .box-button button{
+    width: 50%;
+    padding: 10px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    background-color: rgb(55, 55, 55);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.popup-box .box-button button.red{
+    background-color: rgb(255, 62, 62);
+}
+
+@media (max-width: 480px){
+    .card-comment{
+        width: 100%;
+    }
+    .card-comment.offset{
+        width: 100%;
+    }
+    .pull-comment{
+        margin-left: 0;
+        padding-left: 0;
+        border-left: 0px solid rgb(194, 194, 194);
+    }
+}
+
+@media (max-width: 415px){
+    .popup-box{
+        width: 100%;
+    }
+    .card-comment .quantity{
+        width: 100px;
+    }
+    .card-comment .profile div h3{
+        font-size: 15px;
+    }
+    .card-comment .profile div p{
+        font-size: 10px;
+    }
+    .paragraph{
+        font-size: 12px;
+    }
+    .card-comment .profile h4{
+        font-size: 12px;
+        font-weight: 600;
+    }
+    .card-comment .profile h4 img{
+        width: 10px;
+    }
+    .popup-box .box-button{
+        gap: 5px;
+    }
+    .popup-box .box-button button{
+        width: 49%;
+    }
+    .card-comment .wraper-card{
+        gap: 10px;
+    }
+    .card-comment{
+        padding: 20px 10px;
+    }
+}
+
+@media (max-width: 1300px){
+    .container-pop-up{
+        height: 148vh;
+    }
+}
